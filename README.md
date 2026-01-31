@@ -19,7 +19,8 @@ Use these credentials to access the application:
 
 ### Login Screen
 
-image.png
+<img width="1370" height="802" alt="image" src="https://github.com/user-attachments/assets/5bd45bd7-bbab-43d5-9ff2-56ba889316f7" />
+
 
 *The login page features a clean black theme with orange accent buttons. Enter the sample credentials above to access the records.*
 
@@ -29,7 +30,8 @@ image.png
 
 ### Records Screen
 
-image.png
+<img width="1912" height="879" alt="image" src="https://github.com/user-attachments/assets/3335be68-adc5-4abe-9c77-15ca5849f182" />
+
 
 *The records page displays the hierarchical table with search, navbar, and allocation controls.*
 
