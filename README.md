@@ -123,7 +123,7 @@ npm run preview
 1. Update `vite.config.ts` and set `base` to your repository name:
 
    ```ts
-   base: '/tableUI/',  // Replace 'tableUI' with your repo name
+   base: '/tableUI/',  
    ```
 
 2. Build the project:
