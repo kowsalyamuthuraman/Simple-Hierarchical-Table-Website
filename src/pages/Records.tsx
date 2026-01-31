@@ -1,24 +1,31 @@
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Navbar } from '../components/Navbar'
 import { HierarchicalTable } from '../components/HierarchicalTable'
 import { initialData } from '../data/initialData'
 
 export function Records() {
-  const navigate = useNavigate()
-
-  const handleLogout = () => {
-    navigate('/')
-  }
+  const [searchTerm, setSearchTerm] = useState('')
 
   return (
     <div className="records-page">
-      <header className="records-header">
-        <h1>Hierarchical Records</h1>
-        <button type="button" className="btn btn-secondary" onClick={handleLogout}>
-          Logout
-        </button>
-      </header>
+      <Navbar />
       <main className="records-content">
-        <HierarchicalTable initialRows={initialData.rows} />
+        <div className="records-toolbar">
+          <div className="search-box">
+            <span className="search-icon" aria-hidden>🔍</span>
+            <input
+              type="search"
+              placeholder="Search by label..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+          </div>
+        </div>
+        <HierarchicalTable
+          initialRows={initialData.rows}
+          searchTerm={searchTerm}
+        />
       </main>
     </div>
   )

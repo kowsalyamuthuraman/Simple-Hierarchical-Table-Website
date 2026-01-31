@@ -105,6 +105,13 @@ body {
   font-size: 0.9rem;
 }
 
+.login-hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
 /* Buttons */
 .btn {
   padding: 0.75rem 1.25rem;
@@ -151,6 +158,46 @@ body {
   background: var(--accent-hover);
 }
 
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 56px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.navbar-title {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.btn-nav {
+  background: var(--accent);
+  color: #0a0a0a;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-nav:hover {
+  background: var(--accent-hover);
+}
+
 /* Records Page */
 .records-page {
   min-height: 100vh;
@@ -158,25 +205,52 @@ body {
   flex-direction: column;
 }
 
-.records-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: var(--bg-card);
-  border-bottom: 1px solid var(--border);
-}
-
-.records-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
 .records-content {
   flex: 1;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   overflow-x: auto;
+}
+
+.records-toolbar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 1rem;
+  min-width: 220px;
+  max-width: 320px;
+}
+
+.search-icon {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.75rem 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-input:focus {
+  outline: none;
 }
 
 /* Table */
@@ -261,9 +335,13 @@ body {
 }
 
 @media (max-width: 768px) {
-  .records-header {
+  .records-toolbar {
     flex-direction: column;
-    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: none;
   }
 
   .table-container {

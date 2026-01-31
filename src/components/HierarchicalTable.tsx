@@ -12,9 +12,13 @@ import { TableRow } from './TableRow'
 
 interface HierarchicalTableProps {
   initialRows: HierarchyRow[]
+  searchTerm?: string
 }
 
-export function HierarchicalTable({ initialRows }: HierarchicalTableProps) {
+export function HierarchicalTable({
+  initialRows,
+  searchTerm = '',
+}: HierarchicalTableProps) {
   const [rows, setRows] = useState<HierarchyRow[]>(() =>
     JSON.parse(JSON.stringify(initialRows))
   )
@@ -25,10 +29,12 @@ export function HierarchicalTable({ initialRows }: HierarchicalTableProps) {
     [initialRows]
   )
 
-  const flatRows = useMemo(
-    () => flattenForDisplay(rows, originals),
-    [rows, originals]
-  )
+  const flatRows = useMemo(() => {
+    const all = flattenForDisplay(rows, originals)
+    if (!searchTerm.trim()) return all
+    const term = searchTerm.trim().toLowerCase()
+    return all.filter((r) => r.label.toLowerCase().includes(term))
+  }, [rows, originals, searchTerm])
 
   const grandTotal = useMemo(() => getGrandTotal(rows), [rows])
   const grandTotalOriginal = useMemo(

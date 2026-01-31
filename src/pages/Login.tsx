@@ -55,6 +55,9 @@ export function Login() {
           <button type="submit" className="btn btn-primary">
             Sign In
           </button>
+          <p className="login-hint">
+            Demo: demo@example.com / demo123
+          </p>
         </form>
       </div>
     </div>
